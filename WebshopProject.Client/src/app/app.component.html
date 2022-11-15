@@ -1,0 +1,48 @@
+<ul class="nav nav-tabs" *ngIf="categories.length >0" id="no-bullets">
+    <li><a routerLink="/" routerLinkActive="active-link w3-green" [routerLinkActiveOptions]="{exact:true}">Home</a>
+    </li>
+    <li class="nav-item" *ngIf="currentCustomer != null && currentCustomer.role == 'Admin'">
+        <a routerLink="/admin/product" routerLinkActive="active-link w3-green">Product</a>
+    </li>
+
+    <li style="display:inline-block" *ngIf="currentCustomer != null && currentCustomer.role == 'Admin'">
+        <a routerLink="/admin/category" routerLinkActive="active-link w3-green">Category</a>
+    </li>
+
+    <li style="display:inline-block" *ngIf="currentCustomer != null">
+        <a routerLink="/profile" routerLinkActive="active-link w3-green">Profile</a>
+    </li>
+
+    <li style="display:inline-block" *ngIf="currentCustomer != null && currentCustomer.role == 'Admin'">
+        <a routerLink="/admin/customer" routerLinkActive="active-link w3-green">Customer</a>
+    </li>
+
+
+    <li class="nav-item" *ngFor="let category of categories ">
+        <a routerLinkActive="active-link w3-green" routerLink="/category-products/{{category.id}}">{{category.categoryName}}</a>
+    </li>
+
+
+    <li class="nav-item">
+        <a routerLink="/register" routerLinkActive="active-link w3-green" *ngIf="currentCustomer == null">Register</a>
+    </li>
+    <li style="display:inline-block" *ngIf="currentCustomer != null" class="nav-item">
+        <a routerLink="/" (click)="logout()">Logout</a>
+    </li>
+
+    <li class="nav-item">
+        <a routerLink="/profile" routerLinkActive="active-link w3-green" *ngIf="currentCustomer == null">Login</a>
+    </li>
+
+    <div class="form-group">
+        <input type="text" class="form-control" [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="productTitle">
+    </div>
+    <span class="fas fa-search search-icon "></span>
+    <button routerLink="/cart" class="btn btn-primary">
+      <i style="font-size:25px" class="fas fa-cart-plus"></i>
+      <div style="font-size: 10px;" class="badge bg-warning"> {{totalItem}}</div>
+    </button>
+</ul>
+
+<router-outlet></router-outlet>
+<!--<app-footer></app-footer>-->

@@ -1,0 +1,31 @@
+<form>
+    <div class="container form-group">
+        <h1>Register</h1>
+        <p>Please fill in this form to create an account.</p>
+        <p class="text-center mt-4 w3-red"> {{ error }}</p>
+        <hr>
+
+
+        <input  [(ngModel)]="customer.email" type="email" placeholder="Email" name="email" id="email" required>
+
+        <input [(ngModel)]="customer.password" type="password" placeholder=" Password" name="psw" id="psw" required>
+
+        <input [(ngModel)]="customer.firstName" type="text" placeholder="FirstName" name="fn" id="fn" required>
+
+        <input [(ngModel)]="customer.lastName" type="text" placeholder="LastName" name="ln" id="ln" required>
+
+        <input [(ngModel)]="customer.address" type="text" placeholder="Address" name="add" id="add" required>
+
+        <input [(ngModel)]="customer.telephone" type="text" placeholder="Telephone" name="tel" id="tel" required>
+
+        <br>
+        <button (click)="save()" type="submit" class="btn btn-primary w3-btn w3-green">Register</button> &nbsp; &nbsp;
+        <button (click)="cancel()" type="submit" class="btn btn-primary w3-btn w3-blue">Cancel</button>
+    </div>
+    
+    <p class="text-center mt-4 w3-red">{{ message }}</p>
+    <br> <br>
+    <div class="container">
+        <p>Already have an account? <a routerLink="/login">Sign in</a>.</p>
+    </div>
+</form>

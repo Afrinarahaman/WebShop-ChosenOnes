@@ -1,0 +1,37 @@
+<h2>Category Administration:</h2>
+
+<div class="w3-container">
+    <br>
+    <table class="w3-table w3-bordered w3-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <th>Category</th>
+                <th>Action</th>
+            </tr>
+
+            <tr *ngFor="let category of categories">
+
+                <td> {{category.id}}</td>
+                <td> {{category.categoryName}}</td>
+
+                <td>
+                    <button class="w3-btn w3-yellow w3-ripple" (click)="edit(category)">&#9998; Edit</button>
+                </td>
+                <td>
+                    <button class="w3-btn w3-red w3-ripple" (click)="delete(category)">Delete</button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <br><br>
+    <div>
+        <label>Category</label>
+        <input class="w3-input w3-border" type="text" [(ngModel)]="category.categoryName">
+        <br>
+        <button class="w3-btn w3-green w3-ripple" (click)="save()">Save</button>&nbsp;&nbsp;
+        <button class="w3-btn w3-blue w3-ripple" (click)="cancel()">Cancel</button> <br><br>
+    </div>
+</div>

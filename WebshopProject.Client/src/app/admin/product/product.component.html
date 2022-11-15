@@ -1,0 +1,104 @@
+<!-- <br>
+<h2>Product Adminstration</h2>
+<br><br>
+
+<div *ngIf="products.length > 0">
+    <div *ngIf="feedback.message" class="alert alert-{{feedback.type}} m-2">{{ feedback.message }}</div> 
+    <div class="table-responsive">
+        <table class="table table-centered table-hover mb-0" id="datatable">
+            <thead>
+                <tr>
+                    <th class="border-top-0" scope="col">Id</th>
+                    <th class="border-top-0" scope="col">Title</th>
+                    <th class="border-top-0" scope="col">Price</th>
+                    <th class="border-top-0" scope="col">Description</th>
+                    <th class="border-top-0" scope="col">Image</th>
+                    <th class="border-top-0" scope="col">Stock</th>
+                    <th class="border-top-0" scope="col">CategoryId</th>
+                    <th class="border-top-0" scope="col" style="width:120px"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of products">
+                    <td>{{item.id}}</td>
+                    <td>{{item.title}}</td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.description}}</td>
+                    <td>{{item.image}}</td>
+                    <td>{{item.stock}}</td>
+                    <td>{{item.categoryId}}</td>
+                    <td style="white-space: nowrap">
+                        <a [routerLink]="['../notes', item.id ]" class="btn btn-secondary w3-yellow">&#9998; Edit</a>&nbsp;
+                        <button class="btn w3-red">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div> 
+</div> -->
+
+
+<h2>Products Details:</h2>
+
+<div class="w3-container">
+    <br>
+    <table class="w3-table w3-bordered w3-striped">
+        <tbody>
+            <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Stock</th>
+                <th>CategoryId</th>
+                
+            </tr>
+
+            <tr *ngFor="let product of products" [ngClass]="{'active':product.id == product.id }">
+
+                <td>{{product.title}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.description}}</td>
+                <td> {{product.image}}</td>
+                <td>{{product.stock}}</td>
+                <td >{{product.categoryId}}</td>
+                <!--  <td>{{customer.loginId}}</td>-->
+
+                <td>
+                    <button class="w3-btn w3-yellow w3-ripple" (click)="edit(product)">&#9998; Edit</button>
+                </td>
+                <td>
+                    <button class="w3-btn w3-red w3-ripple"(click)="delete(product)" >Delete</button>
+                </td> 
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <div>
+        <label>Title</label>
+        <input class="w3-input w3-border" type="text" [(ngModel)]="product.title">
+
+        <label>Price</label>
+        <input class="w3-input w3-border" type="text" [(ngModel)]="product.price">
+
+        <label>Description</label>
+        <input class="w3-input w3-border" type="text" [(ngModel)]="product.description">
+
+        <label>Image</label>
+        <input class="w3-input w3-border" type="text" [(ngModel)]="product.image">
+
+        <label>Stock</label>
+        <input class="w3-input w3-border" type="text" [(ngModel)]="product.stock">
+
+        <label>CategoryId</label>
+        <input class="w3-input w3-border" type="text" [(ngModel)]="product.categoryId">
+        <br>
+        <button class="w3-btn w3-green w3-ripple" (click)="save()">Save</button> &nbsp; &nbsp;
+        <button class="w3-btn w3-blue w3-ripple" (click)="cancel()">Cancel</button>&nbsp; &nbsp; 
+        <br>
+        <span class="w3-red">{{ message }}</span>
+        <br>
+    </div>
+</div>

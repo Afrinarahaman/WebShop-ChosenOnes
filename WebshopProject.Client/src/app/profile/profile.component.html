@@ -1,0 +1,57 @@
+<h3>Hi {{currentCustomer.firstName}}!</h3>
+
+<div class="w3-container">
+    <h4>Your Profile:</h4><br>
+
+    <table class="w3-table w3-bordered w3-striped">
+        <tbody>
+            <tr>
+                <th>Email</th>
+                <th>Password</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Address</th>
+                <th>Telephone</th>
+                <th>Role</th>
+            </tr>
+            <tr>
+
+                <td>{{ currentCustomer.email }}</td>
+                <td>{{ currentCustomer.password }}</td>
+                <td>{{ currentCustomer.firstName }}</td>
+                <td>{{ currentCustomer.lastName }}</td>
+                <td>{{ currentCustomer.address }}</td>
+                <td>{{ currentCustomer.telephone }}</td>
+                <td>{{ currentCustomer.role }}</td>
+                <td>
+                    <button class="w3-btn w3-yellow w3-ripple" (click)="edit(currentCustomer)">&#9998; Edit</button>
+                </td>
+            </tr>
+    </table>
+    <br>
+    <hr>
+
+    <div>
+        <label>Email</label>
+        <input class="w3-input w3-border" [(ngModel)]="customer.email">
+
+        <label>Password</label>
+        <input class="w3-input w3-border" [(ngModel)]="customer.password">
+
+        <label>FirstName</label>
+        <input class="w3-input w3-border" [(ngModel)]="customer.firstName">
+
+        <label>LastName</label>
+        <input class="w3-input w3-border" [(ngModel)]="customer.lastName">
+
+        <label>Address</label>
+        <input class="w3-input w3-border" [(ngModel)]="customer.address">
+
+        <label>Telephone</label>
+        <input class="w3-input w3-border" [(ngModel)]="customer.telephone">
+    </div><br>
+    <div>
+        <button class="w3-btn w3-green w3-ripple" (click)="save()">Save</button>&nbsp;&nbsp;
+        <button class="w3-btn w3-blue w3-ripple" (click)="cancel()">Cancel</button> <br><br>
+        <span class="w3-red">{{ message }}</span>
+    </div>

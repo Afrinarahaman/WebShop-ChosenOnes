@@ -1,0 +1,23 @@
+
+<div class="container">
+    <div class="row">
+        <ng-container  >
+            <div class="card col-md-3"  >
+                <img src="/assets/image/{{product.image}}" alt="picture of product">
+                <h5 style="white-space: nowrap;overflow: hidden;text-overflow:ellipsis;max-width: 100ch;">{{product.title}}
+                </h5>
+                <p style="white-space: nowrap;overflow: hidden;text-overflow:ellipsis;max-width: 100ch;">
+                    {{product.description}}</p>
+                <p><strong>Price: </strong>kr {{product.price}}</p>
+               <!--  <div class="relative">
+                    <button class="btns" type="button" ><i class="fa fa-plus"></i></button>
+                    <span >{{product.quantity}}</span>
+                    <button class="btns" type="button" ><i class="fa fa-minus"></i></button>
+                </div> -->
+                <button class="btn btn-primary" (click)="addToCart(product)" >Add to card</button>
+            </div>
+        </ng-container>
+    </div>
+
+</div>
+

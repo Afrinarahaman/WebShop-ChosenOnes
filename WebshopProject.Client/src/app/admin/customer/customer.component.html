@@ -1,0 +1,63 @@
+<h2>Customer Details:</h2>
+
+<div class="w3-container">
+    <br>
+    <table class="w3-table w3-bordered w3-striped">
+        <tbody>
+            <tr>
+                <th>Email</th>
+                <th>Password</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Address</th>
+                <th>Telephone No.</th>
+                <th>Actions</th>
+            </tr>
+
+            <tr *ngFor="let customer of customers" [ngClass]="{'active':customer.id == customer.id }">
+
+                <td>{{customer.email}}</td>
+                <td>{{customer.password}}</td>
+                <td>{{customer.firstName}}</td>
+                <td> {{customer.lastName}}</td>
+                <td>{{customer.address}}</td>
+                <td>{{customer.telephone}}</td>
+                <!--  <td>{{customer.loginId}}</td>-->
+
+                <td>
+                    <button class="w3-btn w3-yellow w3-ripple" (click)="edit(customer)">&#9998; Edit</button>
+                </td>
+                <td>
+                    <button class="w3-btn w3-red w3-ripple" (click)="delete(customer)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <div>
+        <label>Email</label>
+        <input class="w3-input w3-border" type="text" [(ngModel)]="customer.email">
+
+        <label>Password</label>
+        <input class="w3-input w3-border" type="text" [(ngModel)]="customer.password">
+
+        <label>First Name</label>
+        <input class="w3-input w3-border" type="text" [(ngModel)]="customer.firstName">
+
+        <label>Last Name</label>
+        <input class="w3-input w3-border" type="text" [(ngModel)]="customer.lastName">
+
+        <label>Telephone Number</label>
+        <input class="w3-input w3-border" type="text" [(ngModel)]="customer.telephone">
+
+        <label>Address</label>
+        <input class="w3-input w3-border" type="text" [(ngModel)]="customer.address">
+        <br>
+        <button class="w3-btn w3-green w3-ripple" (click)="save()">Save</button> &nbsp; &nbsp;
+        <button class="w3-btn w3-blue w3-ripple" (click)="cancel()">Cancel</button>&nbsp; &nbsp;
+        <br>
+        <span class="w3-red">{{ message }}</span>
+        <br>
+    </div>
+</div>
